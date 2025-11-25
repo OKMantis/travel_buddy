@@ -1,23 +1,20 @@
 class Activity < ApplicationRecord
   # has_many :activity_messages
 
-  SEASONS = [
+  SEASON = [
     "Winter",
     "Spring",
     "Summer",
     "Fall"
   ]
 
-  CITIES = [
+  CITY = [
     "New York",
-    "Tokyo",
     "Barcelona",
-    "Paris",
-    "Dubai",
-    "Cairo"
+    "Tokyo"
   ]
 
-  CATEGORIES = [
+  CATEGORY = [
     "Experiences & Activities",
     "Culture & Entertainment",
     "Family-Friendly",

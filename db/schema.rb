@@ -21,5 +21,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_11_25_115939) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "link"
   end
 end
