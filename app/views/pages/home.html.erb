@@ -45,21 +45,23 @@
 
   </div>
 </div>
-
-
-<div class="row">
-  <div class="col-md-3">
-    <h2>Chats</h2>
-    <div class="mb-4">
-      <% if current_user.chats.any? %>
-        <ul>
-          <% current_user.chats.each do |chat| %>
-            <li><%= link_to chat.title, chat_path(chat) %></li>
-          <% end %>
-        </ul>
-      <% else %>
-        There are no chats yet.
-      <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h2>Chats</h2>
+      <div class="mb-4">
+        <% if current_user.chats.any? %>
+          <ul>
+            <% current_user.chats.each do |chat| %>
+              <li><%= link_to chat.title, chat_path(chat) %></li>
+            <% end %>
+          </ul>
+        <% else %>
+          There are no chats yet.
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+
+
