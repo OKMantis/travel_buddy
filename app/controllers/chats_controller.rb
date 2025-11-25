@@ -1,6 +1,6 @@
 class ChatsController < ApplicationController
   def create
-    @chat = Chat.new(title: "Untitled")
+    @chat = Chat.new(chat_params)
     @chat.user = current_user
 
     if @chat.save
@@ -13,5 +13,11 @@ class ChatsController < ApplicationController
   def show
     @chat    = current_user.chats.find(params[:id])
     @message = Message.new
+  end
+
+  private
+
+  def chat_params
+    params.require(:chat).permit(:city, :category, :season)
   end
 end
