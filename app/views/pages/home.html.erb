@@ -2,16 +2,13 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 <div class="row">
-  <div class="col">
-    <h1><%= @current_user.name %></h1>
-    <%= raw(render_markdown(@current_user.content)) %>
-  </div>
+
   <div class="col-md-3">
     <h2>Chats</h2>
     <div class="mb-4">
-      <% if @current_user.chats.any? %>
+      <% if current_user.chats.any? %>
         <ul>
-          <% @current_user.chats.each do |chat| %>
+          <% current_user.chats.each do |chat| %>
             <li><%= link_to chat.title, chat_path(chat) %></li>
           <% end %>
         </ul>
@@ -19,6 +16,6 @@
         There are no chats yet.
       <% end %>
     </div>
-    <%= button_to "New chat", current_user_chats_path(@current_user), class: "btn btn-primary" %>
+    HERE A FORM WITH CITIES, CATEGORIES AND SEASONS
   </div>
 </div>

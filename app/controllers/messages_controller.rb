@@ -12,11 +12,26 @@ def create
 
   if @message.save
     ruby_llm_chat = RubyLLM.chat
-    response = ruby_llm_chat.with_instructions(instructions).ask(@message.content)
+    # response = ruby_llm_chat.with_instructions(instructions).ask(@message.content)
+    response = ruby_llm_chat.ask(@message.content)
     Message.create(role: "assistant", content: response.content, chat: @chat)
 
     redirect_to chat_messages_path(@chat)
   else
     render "chats/show", status: :unprocessable_entity
   end
+
+  private
+
+  def message_params
+    params.require(:message).permit(:content)
+  end
+
+  # def activity_context
+  #   "Here is the context of the activity: #{@activity.content}."
+  # end
+
+  # def instructions
+  #   [SYSTEM_PROMPT, challenge_context].compact.join("\n\n")
+  # end
 end
