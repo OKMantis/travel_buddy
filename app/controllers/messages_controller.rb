@@ -1,24 +1,23 @@
 class MessagesController < ApplicationController
+  SYSTEM_PROMPT = "You are a Activities Assistant.\n\nI am a traveler , looking for activities to do in a chosen city.\n\nAnswer concisely in Markdown."
 
-SYSTEM_PROMPT = "You are a Activities Assistant.\n\nI am a traveler , looking for activities to do in a chosen city.\n\nAnswer concisely in Markdown."
+  def create
+    @chat = current_user.chats.find(params[:chat_id])
 
-def create
-  @chat = current_user.chats.find(params[:chat_id])
-  @challenge = @chat.challenge
+    @message = Message.new(message_params)
+    @message.chat = @chat
+    @message.role = "user"
 
-  @message = Message.new(message_params)
-  @message.chat = @chat
-  @message.role = "user"
+    if @message.save
+      ruby_llm_chat = RubyLLM.chat
+      # response = ruby_llm_chat.with_instructions(instructions).ask(@message.content)
+      response = ruby_llm_chat.ask(@message.content)
+      Message.create(role: "assistant", content: response.content, chat: @chat)
 
-  if @message.save
-    ruby_llm_chat = RubyLLM.chat
-    # response = ruby_llm_chat.with_instructions(instructions).ask(@message.content)
-    response = ruby_llm_chat.ask(@message.content)
-    Message.create(role: "assistant", content: response.content, chat: @chat)
-
-    redirect_to chat_messages_path(@chat)
-  else
-    render "chats/show", status: :unprocessable_entity
+      redirect_to chat_messages_path(@chat)
+    else
+      render "chats/show", status: :unprocessable_entity
+    end
   end
 
   private
@@ -26,12 +25,4 @@ def create
   def message_params
     params.require(:message).permit(:content)
   end
-
-  # def activity_context
-  #   "Here is the context of the activity: #{@activity.content}."
-  # end
-
-  # def instructions
-  #   [SYSTEM_PROMPT, challenge_context].compact.join("\n\n")
-  # end
 end
