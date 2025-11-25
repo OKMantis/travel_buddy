@@ -4,7 +4,7 @@ class CreateChats < ActiveRecord::Migration[7.2]
       t.string :title
       t.string :city
       t.string :category
-      t.string :month
+      t.string :season
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
