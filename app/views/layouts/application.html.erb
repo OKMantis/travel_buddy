@@ -15,72 +15,11 @@
     <link rel="apple-touch-icon" href="/icon.png">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background-color: #222;
-      color: #fff;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;       /* было жирнее, теперь нормальный вес */
-      letter-spacing: 1,5px;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      margin-bottom: 0;
-    }
-
-    .nav-links a {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      color: #fff;
-      text-decoration: none;
-      justify-content: center;
-      align-items: center;
-      color: rgba(255, 255, 255, 1);
-      transition: 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: rgba(255, 255, 255, 0.7);
-    }
-    body {
-      padding-top: 60px;
-    }
-    </style>
   </head>
 
   <body>
     <%= render "shared/flashes" %>
     <%= yield %>
-    <nav class="navbar">
-      <div class="logo">TrueTrek</div>
-        <ul class="nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Travel Book</a></li>
-          <li><a href="#">Chats</a></li>
-        </ul>
-    </nav>
+    <%= render "shared/navbar"%>
   </body>
 </html>
