@@ -27,6 +27,16 @@ ActiveRecord::Schema[7.2].define(version: 2025_11_25_120423) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "activities", force: :cascade do |t|
+    t.string "city"
+    t.string "category"
+    t.string "season"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "link"
+  end
+
   create_table "chats", force: :cascade do |t|
     t.string "title"
     t.string "city"
