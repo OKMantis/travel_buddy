@@ -18,6 +18,7 @@ class ChatsController < ApplicationController
         season: activity.season
       }
     end
+    
     @chat = Chat.new(chat_params)
     @chat.user = current_user
     @city = @chat.city
