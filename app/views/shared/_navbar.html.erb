@@ -2,9 +2,14 @@
   <nav class="navbar">
     <div class="logo">TrueTrek</div>
       <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Travel Book</a></li>
-        <li><a href="#">Chats</a></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Home", root_path %></li>
+          <li><a href="#">Travel Book</a></li>
+          <li><a href="#">Chats</a></li>
+          <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %></li>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <% end %>
       </ul>
   </nav>
 </div>
