@@ -18,22 +18,17 @@
   </head>
 
   <body style="padding-top:20px;">
-    <%= render "shared/flashes" %>
-    <%= render "shared/navbar"%>
-    <%= yield %>
-
-    <%= render "shared/navbar" %>
-    <div class="container-fluid">
-
-      <div class="row" data-controller="toggle">
-        <nav class="col-md-2 sidebar pt-3" data-toggle-target="hideable">
-          <%= render "shared/sidenav" %>
-        </nav>
-
-        <div class="col-md-10 my-4">
+    <div class="" data-controller="toggle">
+      <%= render "shared/navbar"%>
+      <div class="d-flex">
+        <div class="flex-grow-1">
           <%= render "shared/flashes" %>
           <%= yield %>
         </div>
+
+        <nav class="sidebar pt-3" data-toggle-target="hideable" style="width: 250px">
+          <%= render "shared/sidenav" %>
+        </nav>
 
       </div>
     </div>
