@@ -22,7 +22,7 @@
 
   <div id="new_message_container">
     <%= simple_form_for [@chat, @message] do |f| %>
-      <%= f.input :content, label: "Ask a question", required: true, placeholder: "How should I get started with the challenge?" %>
+      <%= f.input :content, label: "Ask a question", required: true, placeholder: "Which activity would you like to do?" %>
       <%= f.button :submit, 'Ask LLM', class: 'btn btn-primary' %>
     <% end %>
   </div>
