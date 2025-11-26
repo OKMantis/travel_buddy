@@ -1,2 +1,12 @@
 <h3>sidebar for chat histroy</h3>
-<%= link_to "#", class: "nav-link text-dark", data: { action: "click->toggle#call" } %>
+<div class="mb-4">
+  <% if current_user.chats.any? %>
+    <ul>
+      <% current_user.chats.each do |chat| %>
+        <li><%= link_to chat.title, chat_path(chat) %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    There are no chats yet.
+  <% end %>
+</div>

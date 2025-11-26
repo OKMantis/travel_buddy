@@ -3,7 +3,7 @@
              url('https://static.independent.co.uk/2024/01/05/15/newFile-6.jpg');
             background-size: cover;
             background-position: center;
-            height: 700px;">
+            height: 100vh;">
   <div class="container">
 
     <h4 class="text-white fw-bold mb-4">
@@ -43,23 +43,5 @@
       </div>
     </div>
 
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <h2>Chats</h2>
-      <div class="mb-4">
-        <% if current_user.chats.any? %>
-          <ul>
-            <% current_user.chats.each do |chat| %>
-              <li><%= link_to chat.title, chat_path(chat) %></li>
-            <% end %>
-          </ul>
-        <% else %>
-          There are no chats yet.
-        <% end %>
-      </div>
-    </div>
   </div>
 </div>
