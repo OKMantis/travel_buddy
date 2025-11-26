@@ -1,7 +1,6 @@
 class ChatsController < ApplicationController
 
   SYSTEM_PROMPT = "You are a Activities Assistant.\n\nI am a traveler , looking for activities to do in a chosen city.\n\nAnswer concisely in Markdown."
-  
   def show
     @chat = current_user.chats.find(params[:id])
     @message = Message.new
@@ -21,10 +20,9 @@ class ChatsController < ApplicationController
     "- a brief description, " \
     "- a direct link to its official or most relevant URL."
 
-    ruby_llm_chat = RubyLLM.chat
-    response = ruby_llm_chat.with_instructions(SYSTEM_PROMPT).ask(@user_prompt)
-    Message.create(role: "user", content: @user_prompt, chat: @chat)
-    Message.create(role: "assistant", content: response.content, chat: @chat)
+     @chat.with_instructions(SYSTEM_PROMPT).ask(@user_prompt)
+    #Message.create(role: "user", content: @user_prompt, chat: @chat)
+    #Message.create(role: "assistant", content: response.content, chat: @chat)
 
     if @chat.save
       redirect_to chat_path(@chat)

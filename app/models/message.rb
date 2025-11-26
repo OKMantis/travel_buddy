@@ -1,4 +1,5 @@
 class Message < ApplicationRecord
   belongs_to :chat
-  has_many :messages, dependent: :destroy
+  belongs_to :tool_call, optional: true
+  acts_as_message
 end
