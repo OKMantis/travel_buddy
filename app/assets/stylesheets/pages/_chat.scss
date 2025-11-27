@@ -12,7 +12,9 @@
 }
 
 #messages {
-  margin-bottom: 1rem !important;
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
+  padding-bottom: 50px;
 }
 
 .message-cloud {
