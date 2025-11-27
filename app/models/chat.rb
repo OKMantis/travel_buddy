@@ -18,7 +18,7 @@ class Chat < ApplicationRecord
   end
 
   def system_prompt(city: "", category: "", season: "", message_id: nil)
-    activities = Activity
+    activities = Activity.all
     prompt = "Provide a list of activities "
     
     if city.present?
