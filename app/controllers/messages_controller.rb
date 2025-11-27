@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
     if @message.save
       @ruby_llm_chat = RubyLLM.chat
       build_conversation_history
-      response = @ruby_llm_chat.with_instructions(SYSTEM_PROMPT).ask(@chat.system_prompt(@message.content)
+      response = @ruby_llm_chat.with_instructions(SYSTEM_PROMPT).ask(@chat.system_prompt(@message.content))
       Message.create(role: "assistant", content: response.content)
 
       redirect_to chat_messages_path(@chat)
