@@ -1,5 +1,5 @@
 class Activity < ApplicationRecord
-  # has_many :activity_messages
+  has_many :travel_books
 
   SEASON = [
     "Winter",
