@@ -9,4 +9,5 @@ class ActivitiesController < ApplicationController
     @chat = @message.chat
     redirect_to chat_path(@chat)
   end
+
 end

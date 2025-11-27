@@ -21,8 +21,10 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
   resources :messages, only: [] do
-    resources :activities, only: :show
+    resources :activities, only: [:show, :destroy]
   end
+
+  resources :travel_books, only: [:destroy, :show]
 end
 
 

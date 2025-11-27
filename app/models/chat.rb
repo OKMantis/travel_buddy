@@ -47,7 +47,7 @@ class Chat < ApplicationRecord
       }
     end
 
-    a_tag = "<a class=\"btn btn-primary ms-3\" href=\"/messages/message_id/activities/activity_id\">Add to travelbook</a>"
+    a_tag = "<a class=\"\" href=\"/messages/message_id/activities/activity_id\">Add to travelbook</a>"
 
     prompt += " and insert next to each activity a html a tag with this format: #{a_tag}. In the href attribute replace `message_id` with #{message_id}."
     prompt += activities.to_json
