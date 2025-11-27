@@ -13,6 +13,8 @@
   text-align: center;
 }
 
-ul {
-  padding-left: 0;
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
 }

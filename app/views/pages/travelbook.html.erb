@@ -3,18 +3,15 @@
   <p>Destinations by category and time of year</p>
 
   <div class="cards">
-    <div class="card-activity">
-      <ul>
-        <% current_user.travel_books.each do |travelbook| %>
-          <li>
-            <h4><%= travelbook.activity.city %></h4><p>in <%= travelbook.activity.season %></p>
-            <%=  travelbook.activity.category %> - <%=  travelbook.activity.content %>
-            <br>
-            <%= link_to "Delete", travel_book_path(travelbook), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
+    <% current_user.travel_books.each do |travelbook| %>
+      <div class="card-activity">
+        <h4><%= travelbook.activity.city %></h4>
+        <p>in <%= travelbook.activity.season %></p>
+        <p><%= travelbook.activity.category %> – <%= travelbook.activity.content %></p>
 
+        <%= link_to "Delete", travel_book_path(travelbook),
+              data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      </div>
+    <% end %>
+  </div>
 </div>
