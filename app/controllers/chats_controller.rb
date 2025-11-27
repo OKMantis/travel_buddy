@@ -27,14 +27,14 @@ class ChatsController < ApplicationController
     end
 
     @system_instructions = "You are a Activities Assistant.\n\nI am a traveler , looking for activities to do in a chosen city."
-    @system_prompt = "Provide a list of activities in #{@city} that fit the category #{@category} and are appropriate for the #{@season} season. Include only the activities from this list: #{@activities}"
+    
     @user_message = "Provide a list of activities in #{@city} that fit the category #{@category} and are appropriate for the #{@season} season."
 
-    Message.create(role: "user", content: @user_message, chat: @chat)
+    @user_message = Message.create(role: "user", content: @user_message, chat: @chat)
     @chat.generate_title_from_first_message
 
     ruby_llm_chat = RubyLLM.chat
-    response = ruby_llm_chat.with_instructions(@system_instructions).ask(@system_prompt)
+    response = ruby_llm_chat.with_instructions(@system_instructions + "The message id to replce in the url is #{@user_message.id}").ask(@system_prompt)
     Message.create(role: "assistant", content: response.content, chat: @chat)
 
 

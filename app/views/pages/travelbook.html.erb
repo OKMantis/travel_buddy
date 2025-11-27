@@ -4,7 +4,7 @@
 
   <ul>
     <% current_user.activities.each do |activity| %>
-      <li><%=   activity.city %> - <%=  activity.category %>- <%=  activity.season %></li>
+      <li><%= activity.city %> - <%=  activity.category %>- <%=  activity.season %></li>
     <% end %>
   </ul>
 </div>
