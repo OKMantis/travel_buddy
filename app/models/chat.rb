@@ -17,7 +17,13 @@ class Chat < ApplicationRecord
     update(title: response.content)
   end
 
-  def system_prompt(options: {:city, :category, :})
-    return "Provide a list of activities in #{@city} that fit the category #{@category} and are appropriate for the #{@season} season. Include only the activities from this list: #{@activities}. Beside each activity ill need a html a tag with this format: '<a class=\"btn btn-primary ms-3\" href=\"/messages/message_id/activities/activity_id\">Add to travelbook</a>'. Ill provide the message id later so you can change it in the url. Use the activity id providda to change it in the url"
+  def system_prompt(options = {})
+    if options.present?
+      
+    end
+
+
+
+    return "Provide a list of activities in #{:city} that fit the category #{:category} and are appropriate for the #{:season} season. Include only the activities from this list: #{Activity.all}. Beside each activity ill need a html a tag with this format: '<a class=\"btn btn-primary ms-3\" href=\"/messages/message_id/activities/activity_id\">Add to travelbook</a>'. Ill provide the message id later so you can change it in the url. Use the activity id providda to change it in the url"
   end
 end

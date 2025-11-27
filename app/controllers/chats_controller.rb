@@ -34,7 +34,7 @@ class ChatsController < ApplicationController
     @chat.generate_title_from_first_message
 
     ruby_llm_chat = RubyLLM.chat
-    response = ruby_llm_chat.with_instructions(@system_instructions + "The message id to replce in the url is #{@user_message.id}").ask(@system_prompt)
+    response = ruby_llm_chat.with_instructions(@system_instructions + "Replace the message id in the url with #{@user_message.id}").ask(@chat.system_prompt(options: {}))
     Message.create(role: "assistant", content: response.content, chat: @chat)
 
 
