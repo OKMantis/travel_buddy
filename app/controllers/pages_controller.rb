@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
   end
-  
+
   def travelbook
     @saved_in_travelbook = TravelBook.all
   end

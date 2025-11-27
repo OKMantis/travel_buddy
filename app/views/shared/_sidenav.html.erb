@@ -1,13 +1,15 @@
 
 <div class="mb-4">
   <h5><i class="fa-solid fa-clock-rotate-left"></i> Histroy</h5>
-  <% if current_user.chats.any? %>
-    <ul>
-      <% current_user.chats.each do |chat| %>
-        <li><%= link_to chat.title, chat_path(chat) %></li>
-      <% end %>
-    </ul>
-  <% else %>
-    There are no chats yet.
+  <% if user_signed_in? %>
+    <% if current_user.chats.any? %>
+      <ul>
+        <% current_user.chats.each do |chat| %>
+          <li><%= link_to chat.title, chat_path(chat) %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      There are no chats yet.
+    <% end %>
   <% end %>
 </div>
