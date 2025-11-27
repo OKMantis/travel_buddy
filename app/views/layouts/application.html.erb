@@ -18,15 +18,16 @@
   </head>
 
   <body style="padding-top:20px;">
+
     <div class="" data-controller="toggle">
       <%= render "shared/navbar"%>
-      <div class="d-flex">
+      <div class="d-flex vh-100">
         <div class="flex-grow-1">
           <%= render "shared/flashes" %>
           <%= yield %>
         </div>
 
-        <nav class="sidebar pt-3" data-toggle-target="hideable" style="width: 250px">
+        <nav class="sidebar pt-3 d-none" data-toggle-target="hideable" style="width: 250px">
           <%= render "shared/sidenav" %>
         </nav>
 

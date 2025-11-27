@@ -6,13 +6,13 @@
     <% @chat.messages.each do |message| %>
       <% if message.role == "user" %>
         <div class="d-flex justify-content-end mb-2">
-          <div class="bg-white p-8 message-cloud">
+          <div class="user p-6 message-cloud">
             <%= raw(render_markdown(message.content)) %>
           </div>
         </div>
       <% elsif message.role == "assistant" %>
-        <div class="d-flex justify-content-start mb-5">
-          <div class="bg-white p-8 message-cloud">
+        <div class="d-flex justify-content-start m-2">
+          <div class="bg-white p-6 message-cloud">
             <%= raw(render_markdown(message.content)) %>
           </div>
         </div>
@@ -21,8 +21,8 @@
   </div>
 
   <div id="new_message_container">
-    <%= simple_form_for [@chat, @message] do |f| %>
-      <%= f.input :content, label: false, required: true, placeholder: "Ask a question", input_html: { class: "white-bg" } %>
+    <%= simple_form_for [@chat, @message], html: { class: "d-flex" } do |f| %>
+      <%= f.input :content, label: false, required: true, placeholder: "Ask a question", input_html: { class: "white-bg" }, wrapper_class: "flex-grow-1" %>
       <%= f.button :submit, 'Ask LLM', class: 'btn btn-primary' %>
     <% end %>
   </div>
