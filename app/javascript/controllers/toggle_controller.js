@@ -10,6 +10,7 @@ export default class extends Controller {
 
   call(e) {
     e.preventDefault()
-    this.hideableTarget.classList.toggle("d-none")
+    // this.hideableTarget.classList.toggle("d-none")
+    this.hideableTarget.classList.toggle("sidebar--open")
   }
 }
