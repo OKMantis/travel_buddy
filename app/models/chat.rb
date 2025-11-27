@@ -16,4 +16,40 @@ class Chat < ApplicationRecord
     response = RubyLLM.chat.with_instructions(TITLE_PROMPT).ask(first_user_message.content)
     update(title: response.content)
   end
+
+  def system_prompt(city: "", category: "", season: "", message_id: nil)
+    activities = Activity
+    prompt = "Provide a list of activities "
+    
+    if city.present?
+      activities = activities.where(city: city)
+      prompt += " in #{city}"
+    end
+      
+    if category.present?
+      activities = activities.where(category: category)
+      prompt += " where activity category is #{category}"
+    end
+    
+    if season.present?
+      activities = activities.where(season: season)
+      prompt += " and season is #{season}"
+    end
+    
+    
+    activities.map do |activity|
+      {
+        id: activity.id,
+        content: activity.content,
+        category: activity.category,
+        city: activity.city,
+        season: activity.season
+      }
+    end
+
+    a_tag = "<a class=\"\" href=\"/messages/message_id/activities/activity_id\">Add to travelbook</a>"
+
+    prompt += " and insert next to each activity a html a tag with this format: #{a_tag}. In the href attribute replace `message_id` with #{message_id}."
+    prompt += activities.to_json
+  end
 end
