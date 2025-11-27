@@ -11,12 +11,37 @@
   width: 40px;
 }
 
+.logo a {
+  text-decoration: none;
+  color: white;
+}
+
 .sidebar {
-  background:#E8E8E8;
-  backdrop-filter: blur(4px);
-  transition: transform 1s cubic-bezier(0.25, 0.8, 0.25, 1);
-  margin-top: 2em;
+  position: fixed;
+  top: 0;
+  right: 0;          /* <-- anchored to the RIGHT */
+  height: 100vh;
+  width: 260px;      /* adjust to your design */
+
+  background: #E8E8E8;
+
+  /* start fully off screen to the right */
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.5s ease;
+  will-change: transform, opacity;
+  margin-top: 3em;
   text-align: center;
+}
+
+.sidebar.sidebar--open {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .sidebar ul {
