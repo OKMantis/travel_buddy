@@ -1,6 +1,6 @@
 .message-cloud {
   border-radius: 5px;
-  padding: 2rem 1.5rem 2rem 1.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
   p {
     margin-bottom: 0px;
   }
@@ -8,8 +8,53 @@
 
 .white-bg {
   background-color: white !important;
+  margin: 1em 0;
 }
 
 #messages {
   margin-bottom: 1rem !important;
+}
+
+.message-cloud {
+  border-radius: 10px;
+}
+
+.user {
+  background-color: #BCDEF7;
+  margin: 1em 0;
+}
+
+#new_message_container {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0 -3px 12px rgba(0,0,0,0.1);
+  padding: 1rem;
+  background: #f5f5f5;
+}
+
+#new_message_form {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+
+#new_message_form textarea.form-control {
+  flex: 1;
+  width: auto;
+  height: 80px;
+}
+
+.btn-primary  {
+  width: 120px;
+  height: 62px;
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  border-radius: 5px;
+  margin-top: 0.9em;
 }

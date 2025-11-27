@@ -10,6 +10,6 @@ export default class extends Controller {
 
   call(e) {
     e.preventDefault()
-    this.hideableTarget.classList.toggle("d-none")  // bootstrap hide
+    this.hideableTarget.classList.toggle("d-none")
   }
 }
