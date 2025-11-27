@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :chats, dependent: :destroy
+  has_many :messages, through: :chats
+  has_many :travel_books, through: :messages
+  has_many :activities, through: :travel_books
 end
