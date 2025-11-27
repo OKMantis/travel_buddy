@@ -2,12 +2,19 @@
   <h1>My E-Travelbook</h1>
   <p>Destinations by category and time of year</p>
 
-  <ul>
-    <% current_user.travel_books.each do |travelbook| %>
-      <li>
-        <%= travelbook.activity.city %> - <%=  travelbook.activity.category %>- <%=  travelbook.activity.season %>
-        <%= link_to "Delete", travel_book_path(travelbook), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      </li>
-    <% end %>
-  </ul>
+  <div class="cards">
+    <div class="card-activity">
+      <ul>
+        <% current_user.travel_books.each do |travelbook| %>
+          <li>
+            <h4><%= travelbook.activity.city %></h4><p>in <%= travelbook.activity.season %></p>
+            <%=  travelbook.activity.category %> - <%=  travelbook.activity.content %>
+            <br>
+            <%= link_to "Delete", travel_book_path(travelbook), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
 </div>
