@@ -1,5 +1,6 @@
 class Activity < ApplicationRecord
-  # has_many :activity_messages
+  has_many :travel_books, dependent: :destroy
+  has_many :messages, through: :travel_books
 
   SEASON = [
     "Winter",

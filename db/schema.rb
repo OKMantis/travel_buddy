@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_11_26_163608) do
+ActiveRecord::Schema[7.2].define(version: 2025_11_27_091301) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,6 +61,15 @@ ActiveRecord::Schema[7.2].define(version: 2025_11_26_163608) do
     t.index ["tool_call_id"], name: "index_tool_calls_on_tool_call_id"
   end
 
+  create_table "travel_books", force: :cascade do |t|
+    t.bigint "activity_id", null: false
+    t.bigint "message_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_travel_books_on_activity_id"
+    t.index ["message_id"], name: "index_travel_books_on_message_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -75,6 +84,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_11_26_163608) do
 
   add_foreign_key "chats", "users"
   add_foreign_key "messages", "chats"
-  add_foreign_key "messages", "tool_calls"
-  add_foreign_key "tool_calls", "messages"
+  add_foreign_key "travel_books", "activities"
+  add_foreign_key "travel_books", "messages"
 end

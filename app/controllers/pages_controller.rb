@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
   
   def travelbook
+    @saved_in_travelbook = TravelBook.all
   end
 
 end
