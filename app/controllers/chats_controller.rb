@@ -44,4 +44,5 @@ class ChatsController < ApplicationController
   def chat_params
     params.require(:chat).permit(:city, :category, :season)
   end
+  
 end

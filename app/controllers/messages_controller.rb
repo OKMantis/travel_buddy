@@ -1,6 +1,4 @@
 class MessagesController < ApplicationController
-  SYSTEM_PROMPT = "You are a Activities Assistant.\n\nI am a traveler , looking for activities to do in a chosen city.\n\nAnswer concisely in Markdown. "
-
   def create
     @chat = current_user.chats.find(params[:chat_id])
 
@@ -8,11 +6,11 @@ class MessagesController < ApplicationController
     @message.chat = @chat
     @message.role = "user"
 
-    if @message.save
+    if @message.save!
       @ruby_llm_chat = RubyLLM.chat
       build_conversation_history
-      response = @ruby_llm_chat.with_instructions(SYSTEM_PROMPT).ask(@chat.system_prompt(@message.content))
-      Message.create(role: "assistant", content: response.content)
+      response = @ruby_llm_chat.with_instructions(system_prompt).ask(@message.content)
+      Message.create!(role: "assistant", content: response.content, chat: @chat)
 
       redirect_to chat_messages_path(@chat)
     else
@@ -30,5 +28,9 @@ class MessagesController < ApplicationController
     @chat.messages.each do |message|
       @ruby_llm_chat.add_message(message)
     end
+  end
+
+  def system_prompt
+    @chat.system_prompt(city: @city, category: @category, season: @season, message_id: @messages)
   end
 end
