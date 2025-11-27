@@ -11,8 +11,8 @@ class MessagesController < ApplicationController
     if @message.save
       @ruby_llm_chat = RubyLLM.chat
       build_conversation_history
-      response = @ruby_llm_chat.with_instructions(SYSTEM_PROMPT + "The message id to replace in the url is #{@message.id}").ask(@message.content)
-      @chat.messages.create(role: "assistant", content: response.content)
+      response = @ruby_llm_chat.with_instructions(SYSTEM_PROMPT).ask(@chat.system_prompt(@message.content)
+      Message.create(role: "assistant", content: response.content)
 
       redirect_to chat_messages_path(@chat)
     else

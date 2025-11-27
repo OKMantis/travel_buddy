@@ -17,13 +17,39 @@ class Chat < ApplicationRecord
     update(title: response.content)
   end
 
-  def system_prompt(options = {})
-    if options.present?
+  def system_prompt(city: "", category: "", season: "", message_id: nil)
+    activities = Activity
+    prompt = "Provide a list of activities "
+    
+    if city.present?
+      activities = activities.where(city: city)
+      prompt += " in #{city}"
+    end
       
+    if category.present?
+      activities = activities.where(category: category)
+      prompt += " where activity category is #{category}"
+    end
+    
+    if season.present?
+      activities = activities.where(season: season)
+      prompt += " and season is #{season}"
+    end
+    
+    
+    activities.map do |activity|
+      {
+        id: activity.id,
+        content: activity.content,
+        category: activity.category,
+        city: activity.city,
+        season: activity.season
+      }
     end
 
+    a_tag = "<a class=\"btn btn-primary ms-3\" href=\"/messages/message_id/activities/activity_id\">Add to travelbook</a>"
 
-
-    return "Provide a list of activities in #{:city} that fit the category #{:category} and are appropriate for the #{:season} season. Include only the activities from this list: #{Activity.all}. Beside each activity ill need a html a tag with this format: '<a class=\"btn btn-primary ms-3\" href=\"/messages/message_id/activities/activity_id\">Add to travelbook</a>'. Ill provide the message id later so you can change it in the url. Use the activity id providda to change it in the url"
+    prompt += " and insert next to each activity a html a tag with this format: #{a_tag}. In the href attribute replace `message_id` with #{message_id}."
+    prompt += activities.to_json
   end
 end
