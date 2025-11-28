@@ -1,6 +1,5 @@
 class ChatsController < ApplicationController
 
-
   def show
     @chat = current_user.chats.find(params[:id])
     @message = Message.new
@@ -11,12 +10,19 @@ class ChatsController < ApplicationController
     @chat = Chat.new(chat_params)
     @chat.user = current_user
     @chat.title = "Untitled"
+
+    if @chat.city.blank?
+      flash[:alert] = "Please enter a destination city."
+      redirect_to root_path
+      return
+    end
+
     @city = @chat.city
     @category = @chat.category
     @season = @chat.season
-    
+
     @system_instructions = "You are a Activities Assistant.\n\nI am a traveler , looking for activities to do in a chosen city."
-    
+
     @user_message = "Provide a list of activities in #{@city} that fit the category #{@category} and are appropriate for the #{@season} season."
 
     @user_message = Message.create(role: "user", content: @user_message, chat: @chat)
@@ -44,5 +50,5 @@ class ChatsController < ApplicationController
   def chat_params
     params.require(:chat).permit(:city, :category, :season)
   end
-  
+
 end
