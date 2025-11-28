@@ -1,47 +1,49 @@
-<div class="banner d-flex justify-content-center align-items-center text-center"
-     style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-             url('https://static.independent.co.uk/2024/01/05/15/newFile-6.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;">
-  <div class="container">
+ <div class="fullscreen-section">
+  <div class="banner d-flex justify-content-center align-items-center text-center"
+      style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url('https://static.independent.co.uk/2024/01/05/15/newFile-6.jpg');
+              background-size: cover;
+              background-position: center;
+              height: 100vh;">
+    <div class="container" id="home-search">
 
-    <h4 class="text-white fw-bold mb-4">
-      Find activities for your next trip!
-    </h4>
+      <h4 class="text-white fw-bold mb-4">
+        Find activities for your next trip!
+      </h4>
 
-    <div class="row justify-content-center">
-      <div class="col-10 col-md-6 col-lg-5">
+      <div class="row justify-content-center">
+        <div class="col-10 col-md-6 col-lg-5">
 
-        <%= simple_form_for Chat.new do |f| %>
-          <%= f.input :city,
-                collection: ["Barcelona", "New York", "Tokyo"],
-                prompt: "Select a city",
-                label: false %>
+          <%= simple_form_for Chat.new do |f| %>
+            <%= f.input :city,
+                  collection: ["Barcelona", "New York", "Tokyo"],
+                  prompt: "Select a city",
+                  label: false %>
 
-          <%= f.input :season,
-                collection: ["Winter", "Spring", "Summer", "Fall"],
-                prompt: "Select a season",
-                label: false %>
+            <%= f.input :season,
+                  collection: ["Winter", "Spring", "Summer", "Fall"],
+                  prompt: "Select a season",
+                  label: false %>
 
-          <%= f.input :category,
-                collection: [
-                  "Experiences & Activities",
-                  "Culture & Entertainment",
-                  "Family-Friendly",
-                  "Nightlife & Social",
-                  "Instagrammable Spots"
-                ],
-                prompt: "Select a category",
-                label: false %>
+            <%= f.input :category,
+                  collection: [
+                    "Experiences & Activities",
+                    "Culture & Entertainment",
+                    "Family-Friendly",
+                    "Nightlife & Social",
+                    "Instagrammable Spots"
+                  ],
+                  prompt: "Select a category",
+                  label: false %>
 
-          <div class="text-center mt-3">
-            <%= f.submit "Search", class: "btn btn-light" %>
-          </div>
-        <% end %>
+            <div class="text-center mt-3">
+              <%= f.submit "Search", class: "btn btn-light" %>
+            </div>
+          <% end %>
 
+        </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </div>
