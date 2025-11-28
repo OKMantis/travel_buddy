@@ -867,46 +867,6 @@ Activity.create(
 Activity.create(
   city: "New York",
   season: "Summer",
-  category: "Experiences & Activities",
-  content: "Rent bikes and ride around Central Park’s loop before the midday summer heat.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Experiences & Activities",
-  content: "Take a guided street art tour through Bushwick to see huge outdoor murals.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Experiences & Activities",
-  content: "Paddle a rowboat on the Central Park Lake with skyline views all around.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Experiences & Activities",
-  content: "Join a guided kayaking workout on the Hudson River for an active summer morning.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Experiences & Activities",
-  content: "Take a stand-up paddleboarding lesson at Brooklyn Bridge Park for a fun challenge on the water.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
   category: "Culture & Entertainment",
   content: "Watch an outdoor Shakespeare performance in Central Park.",
   link: "https://www.google.com"
@@ -927,71 +887,6 @@ Activity.create(
   content: "Visit MoMA PS1 for modern art and summer courtyard events.",
   link: "https://www.google.com"
 )
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Culture & Entertainment",
-  content: "Catch a free outdoor concert at Prospect Park’s Celebrate Brooklyn! festival.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Culture & Entertainment",
-  content: "Visit the Tenement Museum and join a guided tour about immigrant life on the Lower East Side.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Culture & Entertainment",
-  content: "Spend an evening at an outdoor film screening in Bryant Park with a picnic blanket.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Culture & Entertainment",
-  content: "Take a dance workshop in Harlem to learn the basics of hip-hop and street dance culture.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Culture & Entertainment",
-  content: "Join a martial arts trial class in Chinatown to experience traditional training techniques.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Culture & Entertainment",
-  content: "Join an outdoor salsa dancing night in Hudson River Park with live music.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Culture & Entertainment",
-  content: "Take a guided street-performance walk through Washington Square Park to watch musicians and dancers in action.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Culture & Entertainment",
-  content: "Attend a cultural drum circle event in Central Park where visitors are encouraged to dance and participate.",
-  link: "https://www.google.com"
-)
-
 
 Activity.create(
   city: "New York",
@@ -1020,47 +915,6 @@ Activity.create(
 Activity.create(
   city: "New York",
   season: "Summer",
-  category: "Family-Friendly",
-  content: "Take the kids to Governors Island for mini golf, playgrounds, and wide-open lawns.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Family-Friendly",
-  content: "Visit the New York Hall of Science in Queens for hands-on exhibits on a hot day.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Family-Friendly",
-  content: "Ride the Staten Island Ferry at sunset for free family-friendly skyline views.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Family-Friendly",
-  content: "Play a family-friendly game of frisbee or soccer on Randall’s Island’s open fields.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Family-Friendly",
-  content: "Rent bikes and take the whole family on a gentle ride along the Hudson River Greenway.",
-  link: "https://www.google.com"
-)
-
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
   category: "Nightlife & Social",
   content: "Dance at a rooftop party overlooking the Manhattan skyline.",
   link: "https://www.google.com"
@@ -1085,47 +939,6 @@ Activity.create(
 Activity.create(
   city: "New York",
   season: "Summer",
-  category: "Nightlife & Social",
-  content: "Sip cocktails at a Williamsburg waterfront bar while watching the sun set over Manhattan.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Nightlife & Social",
-  content: "Join a themed summer boat party with DJs and dancing on the Hudson River.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Nightlife & Social",
-  content: "Explore Koreatown late at night with karaoke bars and neon-lit dessert spots.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Nightlife & Social",
-  content: "Join an evening group run through Central Park followed by social drinks with the running club.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Nightlife & Social",
-  content: "Try an outdoor sunset yoga session on a rooftop with a group of locals and travelers.",
-  link: "https://www.google.com"
-)
-
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
   category: "Instagrammable Spots",
   content: "Capture sunset views from the Brooklyn Heights Promenade.",
   link: "https://www.google.com"
@@ -1146,31 +959,6 @@ Activity.create(
   content: "Photograph the colorful street art in Bushwick under summer light.",
   link: "https://www.google.com"
 )
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Instagrammable Spots",
-  content: "Capture bright blue-sky shots of the Vessel and Hudson Yards skyscrapers.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Instagrammable Spots",
-  content: "Snap colorful boardwalk photos at Coney Island with its classic rides and signs.",
-  link: "https://www.google.com"
-)
-
-Activity.create(
-  city: "New York",
-  season: "Summer",
-  category: "Instagrammable Spots",
-  content: "Photograph the Manhattan skyline from Gantry Plaza State Park in Long Island City at golden hour.",
-  link: "https://www.google.com"
-)
-
 
 Activity.create(
   city: "Tokyo",
