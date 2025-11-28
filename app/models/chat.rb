@@ -8,7 +8,7 @@ class Chat < ApplicationRecord
 
   DEFAULT_TITLE = "Untitled"
   TITLE_PROMPT = <<~PROMPT
-  Generate a short, descriptive, 3-to-6-word title that summarizes the user question for a chat conversation.
+    Generate a short, descriptive, 3-to-6-word title that summarizes the user question for a chat conversation.
   PROMPT
 
   def generate_title_from_first_message
@@ -23,8 +23,8 @@ class Chat < ApplicationRecord
 
   def system_prompt(city: "", category: "", season: "", message_id: nil)
     activities = Activity.all
-    prompt = "Provide a list of activities in ul form, where each li tag has the activity id "
-    
+    prompt = "Provide a list of activities in ul form, where each li tag has the activity id. Do not hallucinate or make up activities that are not in the database. Use only the provided activities to generate the list."
+
     if city.present?
       activities = activities.where(city: city)
       prompt += " in #{city}"
@@ -39,7 +39,6 @@ class Chat < ApplicationRecord
       activities = activities.where(season: season)
       prompt += " and season is #{season}"
     end
-
 
     activities.map do |activity|
       {
@@ -61,6 +60,7 @@ class Chat < ApplicationRecord
 
   def city_must_be_present_for_ai_chat
     return unless city.blank? && errors.empty?
+
     errors.add(:city, "can't be blank — please enter a destination")
   end
 end
