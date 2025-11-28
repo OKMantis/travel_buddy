@@ -5,7 +5,9 @@ class PagesController < ApplicationController
   end
 
   def travelbook
-    @saved_in_travelbook = TravelBook.all
+    @barcelona = current_user.travel_books.joins(:activity).where(activity: {city: "Barcelona"})
+    @new_york = current_user.travel_books.joins(:activity).where(activity: {city: "New York"})
+    @tokyo = current_user.travel_books.joins(:activity).where(activity: {city: "Tokyo"})
   end
 
 end
