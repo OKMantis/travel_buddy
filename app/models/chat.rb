@@ -19,7 +19,7 @@ class Chat < ApplicationRecord
 
   def system_prompt(city: "", category: "", season: "", message_id: nil)
     activities = Activity.all
-    prompt = "Provide a list of activities "
+    prompt = "Provide a list of activities in ul form, where each li tag has the activity id "
     
     if city.present?
       activities = activities.where(city: city)
