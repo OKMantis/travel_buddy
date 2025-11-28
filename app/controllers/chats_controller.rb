@@ -1,6 +1,5 @@
 class ChatsController < ApplicationController
 
-
   def show
     @chat = current_user.chats.find(params[:id])
     @message = Message.new
@@ -11,6 +10,13 @@ class ChatsController < ApplicationController
     @chat = Chat.new(chat_params)
     @chat.user = current_user
     @chat.title = "Untitled"
+
+    if @chat.city.blank?
+      flash[:alert] = "Please enter a destination city."
+      redirect_to root_path
+      return
+    end
+
     @city = @chat.city
     @category = @chat.category
     @season = @chat.season
