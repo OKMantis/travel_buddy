@@ -1,11 +1,13 @@
 <div class="container" style="margin-top:5rem;">
-  <h1>My E-Travelbook</h1>
-  <p>Destinations by category and time of year</p>
+  <h2 class="big-title">My Travelbook</h2>
+  <p>All your saved activities.</p>
 
+    <% if @barcelona.any? %>
+      <h3 class="city-title">BARCELONA</h3>
+    <% end %>
   <div class="cards">
-    <% current_user.travel_books.each do |travelbook| %>
+    <% @barcelona.each do |travelbook| %>
       <div class="card-activity">
-        <h4><%= travelbook.activity.city %></h4>
         <p>in <%= travelbook.activity.season %></p>
         <p><%= travelbook.activity.category %> – <%= travelbook.activity.content %></p>
 
@@ -14,4 +16,36 @@
       </div>
     <% end %>
   </div>
+
+    <% if @new_york.any? %>
+      <h3 class="city-title">NEW YORK</h3>
+    <% end %>
+  <div class="cards">
+    <% @new_york.each do |travelbook| %>
+        <div class="card-activity">
+          <p>in <%= travelbook.activity.season %></p>
+          <p><%= travelbook.activity.category %> – <%= travelbook.activity.content %></p>
+
+          <%= link_to "Delete", travel_book_path(travelbook),
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </div>
+      <% end %>
+    </div>
+
+    <% if @tokyo.any? %>
+      <h3 class="city-title">TOKYO</h3>
+    <% end %>
+    <div class="cards">
+      <% @tokyo.each do |travelbook| %>
+        <div class="card-activity">
+          <p>in <%= travelbook.activity.season %></p>
+          <p><%= travelbook.activity.category %> – <%= travelbook.activity.content %></p>
+
+          <%= link_to "Delete", travel_book_path(travelbook),
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </div>
+      <% end %>
+    </div>
 </div>
+
+<%# <h4><%= travelbook.activity.city</h4> %>
