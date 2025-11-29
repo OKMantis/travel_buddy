@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  get "travelbook", to: "pages#travelbook"
+  get "travel_book", to: "pages#travelbook"
 
   resources :chats, only: [:create, :show, :destroy] do
     resources :messages, only: [:create]

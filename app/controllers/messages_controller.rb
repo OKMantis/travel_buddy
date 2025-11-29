@@ -41,6 +41,6 @@ class MessagesController < ApplicationController
   end
 
   def system_prompt
-    @chat.system_prompt(city: @chat.city, category: @chat.category, season: @chat.season, message_id: @messages)
+    @chat.system_prompt(city: @chat.city, category: @chat.category, season: @chat.season, message_id: @message.id)
   end
 end
